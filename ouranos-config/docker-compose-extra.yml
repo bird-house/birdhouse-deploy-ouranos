@@ -7,6 +7,4 @@ services:
     - ../../birdhouse-deploy-ouranos/ouranos-config/generic_bird/wps.cfg:/wps.cfg:ro
   raven:
     volumes:
-    # Increase from default 2 to 10 concurrent processes to support 25
-    # concurrent users.
     - ../../birdhouse-deploy-ouranos/ouranos-config/raven/wps.cfg:/wps.cfg:ro

@@ -4,6 +4,7 @@ outputpath = /data/wpsoutputs
 
 # Increase from default 2 to 14 concurrent processes to support 25
 # concurrent users (num processes approx haft num users).
+# https://github.com/Ouranosinc/raven/issues/251
 parallelprocesses = 14
 
 [logging]

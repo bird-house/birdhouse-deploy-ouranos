@@ -1,6 +1,10 @@
 [server]
 outputurl = https://${PAVICS_FQDN_PUBLIC}/wpsoutputs
 outputpath = /data/wpsoutputs
+
+# Used as "finchasync" because unable to mix and match sync and async request
+# in same bird, issue https://github.com/bird-house/finch/issues/121.
+# Previously discussed with Travis, default 2 is too low for async usage.
 parallelprocesses = 4
 
 [logging]

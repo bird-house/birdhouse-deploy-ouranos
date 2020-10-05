@@ -1,0 +1,10 @@
+version: '2.1'
+services:
+  generic_bird:
+    volumes:
+    # override the one in birdhouse-deploy
+    # assume this repo is checkout along-side repo "birdhouse-deploy"
+    - ../../birdhouse-deploy-ouranos/ouranos-config/generic_bird/wps.cfg:/wps.cfg:ro
+  raven:
+    volumes:
+    - ../../birdhouse-deploy-ouranos/ouranos-config/raven/wps.cfg:/wps.cfg:ro

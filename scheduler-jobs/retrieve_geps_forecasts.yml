@@ -1,0 +1,15 @@
+# Config file for deploy-data script to retrieve GEPS forecasts.
+#
+# Use in retrieve_geps_forecasts.env scheduler job.
+#
+
+deploy:
+  # clone over ssh since private repo
+- repo_url: git@github.com:Ouranosinc/pavics-vdb.git
+  branch: origin/master
+  checkout_name: pavics-vdb-for-geps-forecasts
+  post_actions:
+  - action: ECCC-datamart_sync/run_convert_grib2_to_nc
+
+
+# vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

@@ -9,12 +9,7 @@ deploy:
   branch: origin/master
   checkout_name: pavics-vdb-for-geps-forecasts
   post_actions:
-  - action: >-
-      RUN_CONVERT_GRIB2_TO_NC_INPATH=${RUN_CONVERT_GRIB2_TO_NC_INPATH}
-      RUN_CONVERT_GRIB2_TO_NC_OUTPATH=${RUN_CONVERT_GRIB2_TO_NC_OUTPATH}
-      RUN_CONVERT_GRIB2_TO_NC_THREDDSPATH=${RUN_CONVERT_GRIB2_TO_NC_THREDDSPATH}
-      CONVERT_GRIB2_TO_NC_PROGRESSBAR=false
-      ECCC-datamart_sync/run_convert_grib2_to_nc
+  - action: ECCC-datamart_sync/run_convert_grib2_to_nc
 
 
 # vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

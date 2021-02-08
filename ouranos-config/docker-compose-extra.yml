@@ -9,6 +9,6 @@ services:
     volumes:
     - ../../birdhouse-deploy-ouranos/ouranos-config/raven/wps.cfg:/wps.cfg:ro
 
-  proxy:
-    volumes:
-    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/public-raven-bypass-twitcher.conf:/etc/nginx/conf.extra-service.d/raven/public-raven-bypass-twitcher.conf
+#  proxy:
+#    volumes:
+#    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/public-raven-bypass-twitcher.conf:/etc/nginx/conf.extra-service.d/raven/public-raven-bypass-twitcher.conf

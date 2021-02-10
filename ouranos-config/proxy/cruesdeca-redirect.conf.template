@@ -1,0 +1,3 @@
+    location /cruesdeca {
+        return 302 https://pavics-sdi.readthedocs.io/en/latest/projects/cruesdeca.html;
+    }

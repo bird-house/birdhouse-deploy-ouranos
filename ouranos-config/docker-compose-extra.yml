@@ -9,9 +9,10 @@ services:
     volumes:
     - ../../birdhouse-deploy-ouranos/ouranos-config/raven/wps.cfg:/wps.cfg:ro
 
-#  proxy:
-#    volumes:
+  proxy:
+    volumes:
 # This raven bypass Twitcher is for debugging only, should not be enabled
 # permanently in prod.  Keep here as sample code and documentation how it can
 # be done.
 #    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/public-raven-bypass-twitcher.conf:/etc/nginx/conf.extra-service.d/raven/public-raven-bypass-twitcher.conf:ro
+    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/cruesdeca-redirect.conf:/etc/nginx/conf.extra-service.d/redirect/cruesdeca-redirect.conf:ro

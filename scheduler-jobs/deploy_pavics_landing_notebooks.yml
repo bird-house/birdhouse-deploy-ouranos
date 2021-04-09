@@ -1,0 +1,18 @@
+# Config file for deploy-data script.
+#
+# Use in deploy_pavics_landing_notebooks.env scheduler job.
+#
+
+deploy:
+  # clone over ssh since private repo
+- repo_url: git@github.com:Ouranosinc/PAVICS-landing.git
+  branch: origin/master
+  checkout_name: PAVICS-landing
+  dir_maps:
+  # rsync content below source_dir into dest_dir
+  - source_dir: content/notebooks/climate_indicators
+    dest_dir: /data/jupyterhub_user_data/pavics-homepage
+    rsync_extra_opts: --include=*/ --include=*.ipynb --include=*.geojson --exclude=*
+
+
+# vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

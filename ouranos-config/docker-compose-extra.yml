@@ -17,4 +17,3 @@ services:
 #    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/public-raven-bypass-twitcher.conf:/etc/nginx/conf.extra-service.d/raven/public-raven-bypass-twitcher.conf:ro
     - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/cruesdeca-redirect.conf:/etc/nginx/conf.extra-service.d/redirect/cruesdeca-redirect.conf:ro
     - /data/homepage:/data/homepage:ro
-    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/homepage.conf:/etc/nginx/conf.extra-service.d/homepage/homepage.conf:ro

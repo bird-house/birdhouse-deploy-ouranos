@@ -1,0 +1,3 @@
+    location / {
+        alias /data/homepage/;
+    }

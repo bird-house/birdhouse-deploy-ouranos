@@ -13,6 +13,8 @@ deploy:
   - source_dir: content/notebooks/climate_indicators
     dest_dir: /data/jupyterhub_user_data/pavics-homepage
     rsync_extra_opts: --include=*/ --include=*.ipynb --include=*.geojson --exclude=*
+  - source_dir: src
+    dest_dir: /data/homepage
 
 
 # vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

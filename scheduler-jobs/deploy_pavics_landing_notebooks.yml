@@ -4,8 +4,7 @@
 #
 
 deploy:
-  # clone over ssh since private repo
-- repo_url: git@github.com:Ouranosinc/PAVICS-landing.git
+- repo_url: https://github.com/Ouranosinc/PAVICS-landing.git
   branch: origin/master
   checkout_name: PAVICS-landing
   dir_maps:

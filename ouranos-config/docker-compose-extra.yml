@@ -16,4 +16,6 @@ services:
 # be done.
 #    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/public-raven-bypass-twitcher.conf:/etc/nginx/conf.extra-service.d/raven/public-raven-bypass-twitcher.conf:ro
     - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/cruesdeca-redirect.conf:/etc/nginx/conf.extra-service.d/redirect/cruesdeca-redirect.conf:ro
-    - /data/homepage:/data/homepage:ro
+    - ${DATA_PERSIST_ROOT}/homepage:${DATA_PERSIST_ROOT}/homepage:ro
+    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/catalog.conf:/etc/nginx/conf.extra-service.d/catalog/catalog.conf:ro
+    - ${DATA_PERSIST_ROOT}/catalog:${DATA_PERSIST_ROOT}/catalog:ro

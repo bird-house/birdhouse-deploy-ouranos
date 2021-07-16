@@ -1,0 +1,3 @@
+    location /catalog {
+        alias ${DATA_PERSIST_ROOT}/catalog/;
+    }

@@ -1,0 +1,6 @@
+    location /catalog {
+        alias ${DATA_PERSIST_ROOT}/catalog/;
+        autoindex on;  # allow directory browsing
+        autoindex_exact_size off;  # files size shown will be rounded to KB, MB or GB, more friendly than exact bytes
+        # autoindex_localtime on;  # show files time as localtime instead of GMT
+    }

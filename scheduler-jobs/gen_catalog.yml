@@ -1,0 +1,15 @@
+# Config file for deploy-data script to generate catalog files.
+#
+# Use in gen_catalog.env scheduler job.
+#
+
+deploy:
+  # clone over ssh since private repo
+- repo_url: git@github.com:Ouranosinc/pavics-vdb.git
+  branch: origin/master
+  checkout_name: pavics-vdb-for-catalog
+  post_actions:
+  - action: deployment/launch_container
+
+
+# vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

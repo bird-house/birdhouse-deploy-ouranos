@@ -14,6 +14,8 @@ deploy:
     rsync_extra_opts: --include=*/ --include=*.ipynb --include=*.geojson --exclude=*
   - source_dir: src
     dest_dir: /data/homepage
+  - source_dir: content/jupyter-readme
+    dest_dir: /data/jupyterhub_user_data/jupyter-readme
 
 
 # vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

@@ -6,7 +6,7 @@
 deploy:
   # clone over ssh since private repo
 - repo_url: git@github.com:Ouranosinc/pavics-vdb.git
-  branch: origin/master
+  branch: origin/notos_migration
   checkout_name: pavics-vdb-for-ncml
   dir_maps:
   - source_dir: 1-Datasets/

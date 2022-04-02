@@ -6,7 +6,7 @@
 deploy:
   # clone over ssh since private repo
 - repo_url: git@github.com:Ouranosinc/pavics-vdb.git
-  branch: origin/master
+  branch: origin/notos_migration
   checkout_name: pavics-vdb-for-catalog
   post_actions:
   - action: deployment/launch_container

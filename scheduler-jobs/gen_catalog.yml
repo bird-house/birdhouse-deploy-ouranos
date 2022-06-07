@@ -5,7 +5,7 @@
 
 deploy:
 - repo_url: https://github.com/Ouranosinc/pavics-vdb.git
-  branch: origin/notos_migration-with-extra-test
+  branch: origin/notos_migration
   checkout_name: pavics-vdb-for-catalog
   post_actions:
   - action: deployment/launch_container

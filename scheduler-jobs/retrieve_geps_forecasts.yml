@@ -4,8 +4,7 @@
 #
 
 deploy:
-  # clone over ssh since private repo
-- repo_url: git@github.com:Ouranosinc/pavics-vdb.git
+- repo_url: https://github.com/Ouranosinc/pavics-vdb.git
   branch: origin/master
   checkout_name: pavics-vdb-for-geps-forecasts
   post_actions:

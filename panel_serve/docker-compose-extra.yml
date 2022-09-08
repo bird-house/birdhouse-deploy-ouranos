@@ -10,6 +10,7 @@ services:
     - ../../birdhouse-deploy-ouranos/panel_serve/proxy/analogues_spatiaux.conf:/etc/nginx/conf.extra-service.d/analogues_spatiaux/analogues_spatiaux.conf:ro
 
   analogues_spatiaux:
+    # TODO: do not hardcode, dynamically use same image as Jupyter env
     image: pavics/workflow-tests:220518
     container_name: analogues_spatiaux
     ports:
@@ -17,8 +18,10 @@ services:
     - 5008:5008
     volumes:
     # *** This should pre-exist before `docker-compose up -d`. ***
+    # TODO: use config var for /data
     - /data/panel_serve/analogues_spatiaux:/notebook_dir/analogues_spatiaux:ro
     command: bash -c "panel serve --port=5008 --allow-websocket-origin=* --prefix=/analogues_spatiaux /notebook_dir/analogues_spatiaux/app.ipynb"
     restart: always
     # TODO limit cpu/ram
     # TODO mount jupyter public root dir read-only
+    # TODO mount per container writable-workspace

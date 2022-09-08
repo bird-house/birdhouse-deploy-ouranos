@@ -1,0 +1,20 @@
+# Config file for deploy-data script.
+#
+# Use in deploy_analogues_spatiaux.env scheduler job.
+#
+
+deploy:
+- repo_url: https://github.com/Ouranosinc/docker-utils.git
+  branch: origin/main
+  checkout_name: docker-utils
+
+- repo_url: git@github.com:Ouranosinc/pavics_panel_cccs.git
+  # TODO: switch back to origin/main before merging
+  branch: origin/deploy-test-notebooks
+  checkout_name: pavics_panel_cccs
+  dir_maps:
+  - source_dir: analogues_spatiaux/notebook
+    dest_dir: /data/panel_serve/analogues_spatiaux
+
+
+# vi: tabstop=8 expandtab shiftwidth=2 softtabstop=2

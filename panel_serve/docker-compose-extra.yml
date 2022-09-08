@@ -5,6 +5,7 @@ services:
   # containing the notebooks so that frequent notebook updates do not trigger
   # endlessly entire platform re-deployment.
 
+  # TODO: do not expose proxy config since this is unprotected
   proxy:
     volumes:
     - ../../birdhouse-deploy-ouranos/panel_serve/proxy/analogues_spatiaux.conf:/etc/nginx/conf.extra-service.d/analogues_spatiaux/analogues_spatiaux.conf:ro

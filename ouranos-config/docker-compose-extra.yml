@@ -1,11 +1,5 @@
 version: '3.4'
 services:
-  # override the one in birdhouse-deploy
-  # assume this repo is checkout along-side repo "birdhouse-deploy"
-  raven:
-    volumes:
-    - ../../birdhouse-deploy-ouranos/ouranos-config/raven/wps.cfg:/wps.cfg:ro
-
   proxy:
     volumes:
 # This raven bypass Twitcher is for debugging only, should not be enabled

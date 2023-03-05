@@ -40,7 +40,9 @@ services:
       - MAXIMUM_MEMORY=4G
       - STABLE_EXTENSIONS=netcdf-out-plugin,netcdf-plugin
       - COMMUNITY_EXTENSIONS=ncwms-plugin,colormap-plugin
+      # For custom entrypoint.
       - WANTED_CONTEXT_ROOT=ogc-geoserver
+      - PAVICS_FQDN_PUBLIC
     logging: *default-logging
     healthcheck:
       test: curl --fail --silent http://localhost:8080/ || exit 1

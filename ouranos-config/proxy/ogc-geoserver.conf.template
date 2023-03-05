@@ -1,8 +1,12 @@
     location /ogc-geoserver {
-        proxy_pass http://ogc-geoserver:8080/;
+        proxy_pass http://ogc-geoserver:8080/ogc-geoserver;
+        # proxy headers from
+        # https://docs.geoserver.org/stable/en/user/configuration/globalsettings.html#use-headers-for-proxy-url
         proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header X-Forwarded-Proto $real_scheme;
-        proxy_set_header  Accept-Encoding "";
+        proxy_set_header Accept-Encoding "";
         gzip_proxied any;
         gzip on;
         gzip_comp_level 1;

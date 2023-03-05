@@ -25,10 +25,12 @@ services:
     volumes:
         # TODO use data volume to enforce max size
       - ${DATA_PERSIST_ROOT}/ogc-geoserver:/opt/geoserver/data_dir
+      - ../../birdhouse-deploy/birdhouse/config/geoserver/entrypointwrapper:/entrypointwrapper:ro
     # Need port for WebUI internal access since not working behind front proxy.
     ports:
       - "8110:8080"
     restart: always
+    entrypoint: /entrypointwrapper
     environment:
       - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir
       - GEOWEBCACHE_CACHE_DIR=/opt/geoserver/data_dir/gwc
@@ -38,6 +40,7 @@ services:
       - MAXIMUM_MEMORY=4G
       - STABLE_EXTENSIONS=netcdf-out-plugin,netcdf-plugin
       - COMMUNITY_EXTENSIONS=ncwms-plugin,colormap-plugin
+      - WANTED_CONTEXT_ROOT=ogc-geoserver
     logging: *default-logging
     healthcheck:
       test: curl --fail --silent http://localhost:8080/ || exit 1

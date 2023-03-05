@@ -25,6 +25,9 @@ services:
     volumes:
         # TODO use data volume to enforce max size
       - ${DATA_PERSIST_ROOT}/ogc-geoserver:/opt/geoserver/data_dir
+    # Need port for WebUI internal access since not working behind front proxy.
+    ports:
+      - "8110:8080"
     restart: always
     environment:
       - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir

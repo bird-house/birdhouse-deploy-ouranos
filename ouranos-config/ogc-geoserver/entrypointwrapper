@@ -1,5 +1,9 @@
 #!/bin/sh -x
 
+
+TOMCAT_HOME="/usr/local/tomcat"
+
+
 #
 # Change default context-root.
 # Example: /geoserver -> /new-geoserver

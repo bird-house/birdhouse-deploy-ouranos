@@ -25,7 +25,7 @@ services:
     volumes:
         # TODO use data volume to enforce max size
       - ${DATA_PERSIST_ROOT}/ogc-geoserver:/opt/geoserver/data_dir
-      - ../../birdhouse-deploy/birdhouse/config/geoserver/entrypointwrapper:/entrypointwrapper:ro
+      - ../../birdhouse-deploy-ouranos/ouranos-config/ogc-geoserver/entrypointwrapper:/entrypointwrapper:ro
     restart: always
     entrypoint: /entrypointwrapper
     environment:
@@ -42,7 +42,6 @@ services:
       - HTTP_SCHEME=https
       # For custom entrypoint.
       - WANTED_CONTEXT_ROOT=ogc-geoserver
-      - PAVICS_FQDN_PUBLIC
     logging: *default-logging
     healthcheck:
       test: curl --fail --silent http://localhost:8080/ || exit 1

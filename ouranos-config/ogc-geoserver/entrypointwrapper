@@ -1,0 +1,20 @@
+#!/bin/sh -x
+
+#
+# Change default context-root.
+# Example: /geoserver -> /new-geoserver
+# Not tested scenario: /geoserver -> /prefix/new-geoserver
+#
+DEFAULT_CONTEXT_ROOT="geoserver"
+if [ -n "$WANTED_CONTEXT_ROOT" ]; then
+    if [ -e "$TOMCAT_HOME/webapps/$DEFAULT_CONTEXT_ROOT" ]; then
+        mv "$TOMCAT_HOME/webapps/$DEFAULT_CONTEXT_ROOT" "$TOMCAT_HOME/webapps/$WANTED_CONTEXT_ROOT"
+    fi
+fi
+
+
+# chain existing entrypoint
+/scripts/entrypoint.sh
+
+
+# vi: tabstop=8 expandtab shiftwidth=4 softtabstop=4 

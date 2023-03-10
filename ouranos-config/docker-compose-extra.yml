@@ -26,6 +26,9 @@ services:
         # TODO use data volume to enforce max size
       - ${DATA_PERSIST_ROOT}/ogc-geoserver:/opt/geoserver/data_dir
       - ../../birdhouse-deploy-ouranos/ouranos-config/ogc-geoserver/entrypointwrapper:/entrypointwrapper:ro
+    # Need port for internal access since REST API not working behind front proxy.
+    ports:
+      - "8110:8080"
     restart: always
     entrypoint: /entrypointwrapper
     environment:

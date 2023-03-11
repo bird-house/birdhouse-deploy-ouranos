@@ -20,17 +20,17 @@ services:
     - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/ogc-geoserver.conf:/etc/nginx/conf.extra-service.d/ogc/ogc-geoserver.conf:ro
 
   ogc-geoserver:
-    image: pavics/geoserver:2.22.2-kartoza-build20230226
+    image: pavics/geoserver:2.22.2-kartoza-build20230226-r2-allow-change-context-root
     container_name: ogc-geoserver
     volumes:
         # TODO use data volume to enforce max size
       - ${DATA_PERSIST_ROOT}/ogc-geoserver:/opt/geoserver/data_dir
-      - ../../birdhouse-deploy-ouranos/ouranos-config/ogc-geoserver/entrypointwrapper:/entrypointwrapper:ro
+        #- ../../birdhouse-deploy-ouranos/ouranos-config/ogc-geoserver/entrypointwrapper:/entrypointwrapper:ro
     # Need port for internal access since REST API not working behind front proxy.
     ports:
       - "8110:8080"
     restart: always
-    entrypoint: /entrypointwrapper
+    #entrypoint: /entrypointwrapper
     environment:
       - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir
       - GEOWEBCACHE_CACHE_DIR=/opt/geoserver/data_dir/gwc
@@ -43,8 +43,9 @@ services:
       # https://github.com/kartoza/docker-geoserver#proxy-base-url
       - HTTP_PROXY_NAME=${PAVICS_FQDN_PUBLIC}
       - HTTP_SCHEME=https
+      - GEOSERVER_CONTEXT_ROOT=ogc-geoserver
       # For custom entrypoint.
-      - WANTED_CONTEXT_ROOT=ogc-geoserver
+      #- WANTED_CONTEXT_ROOT=ogc-geoserver
     logging: *default-logging
     healthcheck:
       test: curl --fail --silent http://localhost:8080/ || exit 1

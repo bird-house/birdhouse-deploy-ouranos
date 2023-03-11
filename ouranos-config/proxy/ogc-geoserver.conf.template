@@ -1,5 +1,7 @@
     location /ogc-geoserver {
         proxy_pass http://ogc-geoserver:8080/ogc-geoserver;
+        # UN-TESTED: rewrite response from /geoserver to /ogc-geoserver for WebUI to work
+        #sub_filter "https://${PAVICS_FQDN_PUBLIC}/geoserver" "https://${PAVICS_FQDN_PUBLIC}/ogc-geoserver";
         # proxy headers from
         # https://docs.geoserver.org/stable/en/user/configuration/globalsettings.html#use-headers-for-proxy-url
         proxy_set_header Host $host;

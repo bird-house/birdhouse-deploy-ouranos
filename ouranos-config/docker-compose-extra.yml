@@ -35,8 +35,8 @@ services:
       - GEOSERVER_ADMIN_USER=admin
       - INITIAL_MEMORY=2G
       - MAXIMUM_MEMORY=4G
-      - STABLE_EXTENSIONS=netcdf-out-plugin,netcdf-plugin,grib-plugin
-      - COMMUNITY_EXTENSIONS=ncwms-plugin,colormap-plugin,csw-iso-plugin,geopkg-plugin,metadata-plugin
+      - STABLE_EXTENSIONS=netcdf-out-plugin,netcdf-plugin,grib-plugin,csw-iso-plugin,metadata-plugin
+      - COMMUNITY_EXTENSIONS=ncwms-plugin,colormap-plugin,geopkg-plugin
       # https://github.com/kartoza/docker-geoserver#proxy-base-url
       - HTTP_PROXY_NAME=${PAVICS_FQDN_PUBLIC}
       - HTTP_SCHEME=https

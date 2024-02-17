@@ -22,10 +22,13 @@ services:
   jupyterhub:
     volumes:
     # So that in jupyterhub_config.py, we can do
-    # subprocess.call(["chown",
-    #     f"{os.environ['USER_WORKSPACE_UID']}:{os.environ['USER_WORKSPACE_GID']}",
-    #     "/data/projects/INPACT-share-jupyter"])
-    - ${DATA_PERSIST_ROOT}/projects/INPACT-share-jupyter:${DATA_PERSIST_ROOT}/projects/INPACT-share-jupyter:rw
+    #     inpact_share_on_host = '/data/projects/INPACT-share-jupyter'
+    #     if not os.path.exists(inpact_share_on_host):
+    #         os.makedirs(inpact_share_on_host, mode=0o755, exist_ok=True)
+    #         subprocess.call(['chown',
+    #             f\"{os.environ['USER_WORKSPACE_UID']}:{os.environ['USER_WORKSPACE_GID']}\",
+    #             inpact_share_on_host])
+    - ${DATA_PERSIST_ROOT}/projects:${DATA_PERSIST_ROOT}/projectc:rw
 
   ogc-geoserver:
     image: pavics/geoserver:2.22.2-kartoza-build20230226-r4-allow-change-context-root

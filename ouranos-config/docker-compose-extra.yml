@@ -19,6 +19,14 @@ services:
     - ${DATA_PERSIST_ROOT}/catalog:${DATA_PERSIST_ROOT}/catalog:ro
     - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/ogc-geoserver.conf:/etc/nginx/conf.extra-service.d/ogc/ogc-geoserver.conf:ro
 
+  jupyterhub:
+    volumes:
+    # So that in jupyterhub_config.py, we can do
+    # subprocess.call(["chown",
+    #     f"{os.environ['USER_WORKSPACE_UID']}:{os.environ['USER_WORKSPACE_GID']}",
+    #     "/data/projects/INPACT-share-jupyter"])
+    - ${DATA_PERSIST_ROOT}/projects/INPACT-share-jupyter:${DATA_PERSIST_ROOT}/projects/INPACT-share-jupyter:rw
+
   ogc-geoserver:
     image: pavics/geoserver:2.22.2-kartoza-build20230226-r4-allow-change-context-root
     container_name: ogc-geoserver

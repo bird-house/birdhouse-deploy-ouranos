@@ -28,7 +28,7 @@ services:
     #         subprocess.call(['chown',
     #             f\"{os.environ['USER_WORKSPACE_UID']}:{os.environ['USER_WORKSPACE_GID']}\",
     #             inpact_share_on_host])
-    - ${DATA_PERSIST_ROOT}/projects:${DATA_PERSIST_ROOT}/projectc:rw
+    - ${DATA_PERSIST_ROOT}/projects:${DATA_PERSIST_ROOT}/projects:rw
 
   ogc-geoserver:
     image: pavics/geoserver:2.22.2-kartoza-build20230226-r4-allow-change-context-root

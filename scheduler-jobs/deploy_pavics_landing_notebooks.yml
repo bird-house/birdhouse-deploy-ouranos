@@ -21,10 +21,10 @@ deploy:
   # should not clash because they are being merged together.
   - action: rm -r /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage
   - action: mkdir -p /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage
-  - action: cp content/notebooks/climate_indicators/*.ipynb /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
-  - action: cp --recursive content/notebooks/climate_indicators/tutorial_data /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
-  - action: cp content/notebooks/hydrology/*.ipynb /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
-  - action: cp --recursive content/notebooks/hydrology/tutorial_data /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
+  - action: cp --verbose content/notebooks/climate_indicators/*.ipynb /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
+  - action: cp --verbose --recursive content/notebooks/climate_indicators/tutorial_data /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
+  - action: cp --verbose content/notebooks/hydrology/*.ipynb /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
+  - action: cp --verbose --recursive content/notebooks/hydrology/tutorial_data /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
 
 # Another section to perform the final rsync.
 - repo_url: https://github.com/Ouranosinc/PAVICS-landing.git

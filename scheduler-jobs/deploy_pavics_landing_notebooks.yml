@@ -33,7 +33,7 @@ deploy:
   checkout_name: PAVICS-landing
   dir_maps:
   # rsync content below source_dir into dest_dir
-  - source_dir: /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage
+  - source_dir: ../pavics-homepage
     dest_dir: /data/jupyterhub_user_data/pavics-homepage
 
 

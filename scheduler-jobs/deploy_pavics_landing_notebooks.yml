@@ -10,7 +10,9 @@ deploy:
   dir_maps:
   # rsync content below source_dir into dest_dir
   - source_dir: content/notebooks/climate_indicators
-    dest_dir: $CHECKOUT_CACHE/pavics-homepage
+    # Not able to use CHECKOUT_CACHE var here so have to hardcode it.
+    # CHECKOUT_CACHE=/data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage
+    dest_dir: /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage
     rsync_extra_opts: --include=*/ --include=*.ipynb --include=tutorial_data/** --exclude=*
   - source_dir: src
     dest_dir: /data/homepage
@@ -20,8 +22,8 @@ deploy:
   # Build intermediate layout in $CHECKOUT_CACHE/pavics-homepage so old renamed/deleted filename are handled.
   # NOTE: notebook and tutorial_data/* filenames between hydrology and climate_indicators
   # should not clash because they are being merged together.
-  - action: cp content/notebooks/hydrology/*.ipynb $CHECKOUT_CACHE/pavics-homepage/
-  - action: cp --recursive content/notebooks/hydrology/tutorial_data $CHECKOUT_CACHE/pavics-homepage/
+  - action: cp content/notebooks/hydrology/*.ipynb /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
+  - action: cp --recursive content/notebooks/hydrology/tutorial_data /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage/
 
 # Another section to perform the final rsync.
 - repo_url: https://github.com/Ouranosinc/PAVICS-landing.git
@@ -30,7 +32,7 @@ deploy:
   checkout_name: PAVICS-landing
   dir_maps:
   # rsync content below source_dir into dest_dir
-  - source_dir: $CHECKOUT_CACHE/pavics-homepage
+  - source_dir: /data/deploy_data_cache/deploy_pavics_landing_notebooks_and_homepage/pavics-homepage
     dest_dir: /data/jupyterhub_user_data/pavics-homepage
 
 

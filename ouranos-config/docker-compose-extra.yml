@@ -31,7 +31,7 @@ services:
     - ${DATA_PERSIST_ROOT}/projects:${DATA_PERSIST_ROOT}/projects:rw
 
   ogc-geoserver:
-    image: pavics/geoserver:2.22.2-kartoza-build20230226-r4-allow-change-context-root
+    image: pavics/geoserver:2.25.2--v2024.06.25-kartoza
     container_name: ogc-geoserver
     volumes:
       - ${DATA_PERSIST_ROOT}/ogc-geoserver:/opt/geoserver/data_dir

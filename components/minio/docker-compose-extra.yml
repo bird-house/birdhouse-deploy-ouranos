@@ -17,6 +17,8 @@ services:
     environment:
       - MINIO_ROOT_USER
       - MINIO_ROOT_PASSWORD
+      - MINIO_SERVER_URL=https://${MINIO_HOSTNAME}
+      - MINIO_BROWSER_REDIRECT_URL=https://${MINIO_HOSTNAME}/minio/ui
     volumes:
       - "${MINIO_DATADIR}:/data"
     command: server /data --address ":${MINIO_API_PORT}" --console-address ":${MINIO_CONSOLE_PORT}"

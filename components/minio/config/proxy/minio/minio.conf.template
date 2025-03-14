@@ -1,3 +1,5 @@
+# https://min.io/docs/minio/linux/integrations/setup-nginx-proxy-with-minio.html
+# https://github.com/minio/docs/blob/fa92793112c9b1b3fcfe1f9de40dc98e8228b00b/source/integrations/setup-nginx-proxy-with-minio.rst
 server {
    listen       443;
    server_name  $MINIO_HOSTNAME;

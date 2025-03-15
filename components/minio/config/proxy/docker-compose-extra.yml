@@ -1,0 +1,6 @@
+version: "3.4"
+
+services:
+  proxy:
+    volumes:
+    - ../../birdhouse-deploy-ouranos/components/minio/config/proxy/minio/:/etc/nginx/conf.extra.d/minio/:ro

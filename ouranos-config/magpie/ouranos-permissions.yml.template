@@ -1,4 +1,5 @@
 # Reference https://github.com/Ouranosinc/Magpie/blob/master/config/permissions.cfg
+# Online doc https://pavics-magpie.readthedocs.io/en/latest/api.html
 
 # Description of groups to ease administration of the growing number of users.
 #
@@ -9,6 +10,7 @@ groups:
     description: "Users in this group will be blocked from login to Jupyter"
 
   - name: bogus_email_users
+    # Description length can not be too long.
     description: "Users with bogus emails excluded when sending Jupyter notification"
 
 

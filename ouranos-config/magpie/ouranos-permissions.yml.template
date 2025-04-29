@@ -1,11 +1,15 @@
 # Reference https://github.com/Ouranosinc/Magpie/blob/master/config/permissions.cfg
 
-# Create group.
+# Create groups to ease administration of the growing number of users.
 groups:
   - name: deny_jupyter_login
     description: "Users in this group will be blocked from login to Jupyter"
 
-# Apply permissions to group.
+  - name: bogus_email_users
+    description: "Users with bogus emails, typically test users or bulk temporary users, these emails should be excluded when sending Jupyter env notification"
+
+
+# Apply permissions to groups above.
 permissions:
   - service: jupyterhub
     type: api

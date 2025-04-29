@@ -22,6 +22,7 @@ services:
   magpie:
     volumes:
       - ../../birdhouse-deploy-ouranos/ouranos-config/magpie/ouranos-permissions.yml:${MAGPIE_PERMISSIONS_CONFIG_PATH}/ouranos-permissions.yml:ro
+      - ../../birdhouse-deploy-ouranos/ouranos-config/magpie/ouranos-permissions.yml:${MAGPIE_PROVIDERS_CONFIG_PATH}/ouranos-permissions.yml:ro
 
   jupyterhub:
     volumes:

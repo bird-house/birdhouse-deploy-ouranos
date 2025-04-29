@@ -9,7 +9,7 @@ groups:
     description: "Users in this group will be blocked from login to Jupyter"
 
   - name: bogus_email_users
-    description: "Users with bogus emails, typically test users or bulk temporary users, these emails should be excluded when sending Jupyter env notification"
+    description: "Users with bogus emails excluded when sending Jupyter notification"
 
 
 # Add permissions, not existing group will be recreated with the infos above.

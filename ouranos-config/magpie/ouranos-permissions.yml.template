@@ -1,0 +1,38 @@
+# Reference https://github.com/Ouranosinc/Magpie/blob/master/config/permissions.cfg
+# Online doc https://pavics-magpie.readthedocs.io/en/latest/api.html
+
+# Description of groups to ease administration of the growing number of users.
+#
+# This do not create the groups.  The group is created only if the permissions
+# below reference them and need to be created.
+groups:
+  - name: deny_jupyter_login
+    description: "Users in this group will be blocked from login to Jupyter"
+
+  - name: bogus_email_users
+    # Description length can not be too long.
+    description: "Users with bogus emails excluded when sending Jupyter notification"
+
+
+# Add permissions, not existing group will be recreated with the infos above.
+# Meaning if no permissions reference the group, the group will not be created.
+permissions:
+  - service: jupyterhub
+    type: api
+    permission: read-deny-recursive
+    group: deny_jupyter_login
+    action: create
+
+  - service: jupyterhub
+    type: api
+    permission: write-deny-recursive
+    group: deny_jupyter_login
+    action: create
+
+  # Bogus permission, taken from optional-components/secure-thredds just to force group creation.
+  - service: thredds
+    resource: /${THREDDS_SERVICE_DATA_URL_PATH}/testdata/secure
+    type: directory
+    permission: read-deny-recursive
+    group: bogus_email_users
+    action: create

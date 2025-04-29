@@ -7,8 +7,7 @@ groups:
     action: create
 
   - name: bogus_email_users
-    # Description can not have '-', '_', ',', looks like only [:alphanum:] is allowed.
-    description: "Users with bogus emails to be excluded when sending Jupyter env notification"
+    description: "Users with bogus emails, typically test users or bulk temporary users, these emails should be excluded when sending Jupyter env notification"
     action: create
 
 

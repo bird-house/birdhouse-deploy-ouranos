@@ -1,0 +1,20 @@
+# Reference https://github.com/Ouranosinc/Magpie/blob/master/config/permissions.cfg
+
+# Create group.
+groups:
+  - name: deny_jupyter_login
+    description: "Users in this group will be blocked from login to Jupyter"
+
+# Apply permissions to group.
+permissions:
+  - service: jupyterhub
+    type: api
+    permission: read-deny-recursive
+    group: deny_jupyter_login
+    action: create
+
+  - service: jupyterhub
+    type: api
+    permission: write-deny-recursive
+    group: deny_jupyter_login
+    action: create

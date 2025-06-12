@@ -19,6 +19,10 @@ services:
     - ${DATA_PERSIST_ROOT}/catalog:${DATA_PERSIST_ROOT}/catalog:ro
     - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/ogc-geoserver.conf:/etc/nginx/conf.extra-service.d/ogc/ogc-geoserver.conf:ro
 
+  magpie:
+    volumes:
+      - ../../birdhouse-deploy-ouranos/ouranos-config/magpie/ouranos-permissions.yml:${MAGPIE_PERMISSIONS_CONFIG_PATH}/ouranos-permissions.yml:ro
+
   jupyterhub:
     volumes:
     # So that in jupyterhub_config.py, we can do

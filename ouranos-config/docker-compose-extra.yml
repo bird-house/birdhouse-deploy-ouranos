@@ -17,7 +17,6 @@ services:
     - ${DATA_PERSIST_ROOT}/homepage:${DATA_PERSIST_ROOT}/homepage:ro
     - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/catalog.conf:/etc/nginx/conf.extra-service.d/catalog/catalog.conf:ro
     - ${DATA_PERSIST_ROOT}/catalog:${DATA_PERSIST_ROOT}/catalog:ro
-    - ../../birdhouse-deploy-ouranos/ouranos-config/proxy/ogc-geoserver.conf:/etc/nginx/conf.extra-service.d/ogc/ogc-geoserver.conf:ro
 
   magpie:
     volumes:
